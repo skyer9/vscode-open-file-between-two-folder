@@ -1,0 +1,77 @@
+{
+    "name": "open-file-between-two-folder",
+    "displayName": "Open file Between Two Folder",
+    "description": "Simple plugin for VS Code that allows you to quickly open file between two folder.",
+    "license": "MIT",
+    "version": "0.0.1",
+    "publisher": "skyer9",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.openFileFromOtherFolder"
+    ],
+    "main": "./extension",
+    "keywords": [
+        "shortcuts",
+        "open-files",
+        "path",
+        "vscode",
+        "vscode-extension"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.openFileFromOtherFolder",
+                "title": "Open file Between Two Folder"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.openFileFromOtherFolder",
+                "key": "alt+t",
+                "mac": "alt+t",
+                "when": "!terminalFocus"
+            }
+        ],
+        "configuration": {
+            "title": "Open file Between Two Folder",
+            "properties": {
+                "open-file-between-two-folder.folderPairList": {
+                    "type": "array",
+                    "default": [
+                        ["/dev_domain/", "/prd_domain/"],
+                        ["/dev_domain2/", "/prd_domain2/"]
+                    ],
+                    "description": "Folder pair list to toggle"
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "devDependencies": {
+        "@types/mocha": "^2.2.48",
+        "@types/node": "^7.0.62",
+        "eslint": "^4.19.1",
+        "typescript": "^2.8.3",
+        "vscode": "^1.1.16"
+    },
+    "dependencies": {
+        "hoek": "^5.0.3",
+        "recursive-readdir": "^2.2.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/skyer9/vscode-open-file-between-two-folder"
+    },
+    "galleryBanner": {
+        "color": "#1c2237",
+        "theme": "dark"
+    },
+    "icon": "img/ofbtf-logo.png"
+}
